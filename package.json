@@ -1,0 +1,73 @@
+{
+  "name": "copy-file-and-line",
+  "displayName": "Copy File and Line",
+  "description": "Click a line number in the gutter to copy the file path and line number to the clipboard.",
+  "version": "0.0.1",
+  "publisher": "carvis",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "clipboard",
+    "line number",
+    "copy path",
+    "gutter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/REPLACE_WITH_YOUR_USER/copy-file-and-line.git"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copyFileAndLine.copy",
+        "title": "Copy File and Line"
+      },
+      {
+        "command": "copyFileAndLine.toggle",
+        "title": "Copy File and Line: Toggle Click-to-Copy"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "copyFileAndLine.copy",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Copy File and Line",
+      "properties": {
+        "copyFileAndLine.enableClickToCopy": {
+          "type": "boolean",
+          "default": true,
+          "description": "Copy file path and line number when you click a line number in the gutter (detected as a full-line mouse selection)."
+        },
+        "copyFileAndLine.format": {
+          "type": "string",
+          "default": "${path}:${line}",
+          "markdownDescription": "Clipboard format for a single line. Tokens: `${path}`, `${relativePath}`, `${fileName}`, `${line}`, `${column}`, `${lineText}`."
+        },
+        "copyFileAndLine.rangeFormat": {
+          "type": "string",
+          "default": "${path}:${startLine}-${endLine}",
+          "markdownDescription": "Clipboard format when multiple lines are selected. Tokens: `${path}`, `${relativePath}`, `${fileName}`, `${startLine}`, `${endLine}`, `${lineText}`."
+        },
+        "copyFileAndLine.useRelativePath": {
+          "type": "boolean",
+          "default": true,
+          "description": "When true, ${path} resolves to the path relative to the workspace folder if available."
+        }
+      }
+    }
+  }
+}
