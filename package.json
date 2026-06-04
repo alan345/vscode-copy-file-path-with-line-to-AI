@@ -3,7 +3,7 @@
   "displayName": "Copy File and Line",
   "description": "Click a line number in the gutter to copy the file path and line number to the clipboard.",
   "version": "0.0.1",
-  "publisher": "carvis",
+  "publisher": "Alan Szternberg",
   "license": "MIT",
   "engines": {
     "vscode": "^1.75.0"
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/REPLACE_WITH_YOUR_USER/copy-file-and-line.git"
+    "url": "https://github.com/alan345/vscode-copy-file-path-with-line-to-AI.git"
   },
   "activationEvents": [
     "onStartupFinished"
